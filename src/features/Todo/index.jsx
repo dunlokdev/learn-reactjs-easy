@@ -1,25 +1,23 @@
-import React from 'react';
-import TodoList from './components/TodoList';
+import React from "react";
+import TodoList from "./components/TodoList";
 
-TodoFeature.propTypes = {
-
-};
+TodoFeature.propTypes = {};
 
 function TodoFeature(props) {
   const todoList = [
     {
       id: 1,
-      title: 'Eat'
+      title: "Eat",
     },
     {
       id: 2,
-      title: 'Sleep'
+      title: "Sleep",
     },
     {
       id: 3,
-      title: 'Code'
+      title: "Code",
     },
-  ]
+  ];
 
   return (
     <div>
