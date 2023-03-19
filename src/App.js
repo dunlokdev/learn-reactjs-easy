@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
+import NotFound from "./components/NotFound";
 import AlbumFeature from "./features/Album";
 import TodoFeature from "./features/Todo";
 
@@ -20,6 +21,8 @@ function App() {
         <Route path={"/"} component={TodoFeature} exact />
         <Route path={"/todos"} component={TodoFeature} />
         <Route path={"/albums"} component={AlbumFeature} />
+
+        <Route component={NotFound} />
       </Switch>
 
       <h1>Footer</h1>

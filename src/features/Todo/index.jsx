@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-import TodoList from "./components/TodoList";
+import NotFound from "../../components/NotFound";
 import ListPage from "./pages/ListPage";
 import PageDetail from "./pages/PageDetail";
 
@@ -15,6 +15,8 @@ function TodoFeature(props) {
       <Switch>
         <Route path={match.path} component={ListPage} exact />
         <Route path={`${match.path}/:postId`} component={PageDetail} />
+
+        <Route component={NotFound} />
       </Switch>
     </div>
   );
