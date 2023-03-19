@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, NavLink, Route, Switch } from "react-router-dom";
-import TodoFeature from "./features/Todo";
+import { NavLink, Route, Switch } from "react-router-dom";
 import AlbumFeature from "./features/Album";
+import TodoFeature from "./features/Todo";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Route path={"/albums"} component={AlbumFeature} /> */}
 
       <Switch>
-        <Route path={"/"} component={TodoFeature} />
+        <Route path={"/"} component={TodoFeature} exact />
         <Route path={"/todos"} component={TodoFeature} />
         <Route path={"/albums"} component={AlbumFeature} />
       </Switch>
