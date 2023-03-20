@@ -95,7 +95,13 @@ function ListPage(props) {
   }, [todoList, filteredStatus]);
 
   const handleTodoFormSubmit = (value) => {
-    console.log('Form submit: ', value);
+    const newTodo = {
+      id: Math.floor(Math.random() * 999) + '-random',
+      title: value.title,
+      status: 'new',
+    };
+
+    setTodoList([...todoList, newTodo]);
   };
 
   return (

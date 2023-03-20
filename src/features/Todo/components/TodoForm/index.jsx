@@ -12,7 +12,10 @@ TodoForm.propTypes = {
 function TodoForm(props) {
 
   const schema = yup.object().shape({
-    title: yup.string().required('Please enter title'),
+    title: yup.string()
+      .min(2, 'Title is too short')
+      .required('Please enter title'),
+
   });
 
   const form = useForm({
@@ -23,7 +26,13 @@ function TodoForm(props) {
   });
 
   const handleSubmit = (values) => {
-    console.log('TODO FORM: ', values);
+    const { onSubmit } = props;
+
+    if (onSubmit) {
+      onSubmit(values);
+    }
+
+    form.reset();
   }
 
   return (

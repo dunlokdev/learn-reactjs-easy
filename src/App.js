@@ -8,7 +8,10 @@ import TodoFeature from './features/Todo';
 function App() {
   useEffect(() => {
     const fetchProducts = async () => {
-      const productList = await productApi.getAll();
+      const params = {
+        _limit: 5,
+      };
+      const productList = await productApi.getAll(params);
       console.log(productList);
     };
 
