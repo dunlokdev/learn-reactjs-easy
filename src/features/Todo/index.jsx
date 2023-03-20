@@ -1,8 +1,8 @@
-import React from "react";
-import { Route, Switch, useRouteMatch } from "react-router-dom";
-import NotFound from "../../components/NotFound";
-import ListPage from "./pages/ListPage";
-import PageDetail from "./pages/PageDetail";
+import React from 'react';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import NotFound from '../../components/NotFound';
+import ListPage from './pages/ListPage';
+import PageDetail from './pages/PageDetail';
 
 TodoFeature.propTypes = {};
 
