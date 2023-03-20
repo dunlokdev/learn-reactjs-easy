@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import TodoList from "../../components/TodoList";
 import queryString from "query-string";
+import { useEffect } from "react";
+import { useMemo } from "react";
 
 ListPage.propTypes = {};
 
@@ -25,12 +27,20 @@ function ListPage(props) {
   ];
 
   const location = useLocation();
+  const history = useHistory();
+  const match = useRouteMatch();
+
   const [todoList, setTodoList] = useState(initTodoList);
   const [filteredStatus, setFilteredStatus] = useState(() => {
     const params = queryString.parse(location.search);
 
     return params.status || "all";
   });
+
+  useEffect(() => {
+    const params = queryString.parse(location.search);
+    setFilteredStatus(params.status || "all");
+  }, [location.search]);
 
   const handleTodoClick = (todo, idx) => {
     // clone current array to the new one
@@ -47,20 +57,41 @@ function ListPage(props) {
   };
 
   const handleShowAllClick = () => {
-    setFilteredStatus("all");
+    const queryParams = { status: "all" };
+
+    history.push({
+      pathname: match.path,
+      search: queryString.stringify(queryParams),
+    });
+    // setFilteredStatus("all");
   };
 
   const handleShowCompletedClick = () => {
-    setFilteredStatus("completed");
+    const queryParams = { status: "completed" };
+
+    history.push({
+      pathname: match.path,
+      search: queryString.stringify(queryParams),
+    });
+    // setFilteredStatus("completed");
   };
 
   const handleShowNewClick = () => {
-    setFilteredStatus("new");
+    const queryParams = { status: "new" };
+
+    history.push({
+      pathname: match.path,
+      search: queryString.stringify(queryParams),
+    });
+    // setFilteredStatus("new");
   };
 
-  const renderedTodoList = todoList.filter(
-    (todo) => filteredStatus === "all" || filteredStatus === todo.status
-  );
+  // ! Dùng useMemo để giới hạn reload
+  const renderedTodoList = useMemo(() => {
+    return todoList.filter(
+      (todo) => filteredStatus === "all" || filteredStatus === todo.status
+    );
+  }, [todoList, filteredStatus]);
 
   return (
     <div>
