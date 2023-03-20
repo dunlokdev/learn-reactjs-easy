@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
-import TodoList from "../../components/TodoList";
-import queryString from "query-string";
-import { useEffect } from "react";
-import { useMemo } from "react";
+import React, { useState } from 'react';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import TodoList from '../../components/TodoList';
+import queryString from 'query-string';
+import { useEffect } from 'react';
+import { useMemo } from 'react';
+import TodoForm from '../../components/TodoForm';
 
 ListPage.propTypes = {};
 
@@ -11,18 +12,18 @@ function ListPage(props) {
   const initTodoList = [
     {
       id: 1,
-      title: "Eat",
-      status: "new",
+      title: 'Eat',
+      status: 'new',
     },
     {
       id: 2,
-      title: "Sleep",
-      status: "completed",
+      title: 'Sleep',
+      status: 'completed',
     },
     {
       id: 3,
-      title: "Code",
-      status: "new",
+      title: 'Code',
+      status: 'new',
     },
   ];
 
@@ -34,12 +35,12 @@ function ListPage(props) {
   const [filteredStatus, setFilteredStatus] = useState(() => {
     const params = queryString.parse(location.search);
 
-    return params.status || "all";
+    return params.status || 'all';
   });
 
   useEffect(() => {
     const params = queryString.parse(location.search);
-    setFilteredStatus(params.status || "all");
+    setFilteredStatus(params.status || 'all');
   }, [location.search]);
 
   const handleTodoClick = (todo, idx) => {
@@ -49,7 +50,7 @@ function ListPage(props) {
     // toggle state
     newTodoList[idx] = {
       ...newTodoList[idx],
-      status: newTodoList[idx].status === "new" ? "completed" : "new",
+      status: newTodoList[idx].status === 'new' ? 'completed' : 'new',
     };
 
     // update todo list
@@ -57,7 +58,7 @@ function ListPage(props) {
   };
 
   const handleShowAllClick = () => {
-    const queryParams = { status: "all" };
+    const queryParams = { status: 'all' };
 
     history.push({
       pathname: match.path,
@@ -67,7 +68,7 @@ function ListPage(props) {
   };
 
   const handleShowCompletedClick = () => {
-    const queryParams = { status: "completed" };
+    const queryParams = { status: 'completed' };
 
     history.push({
       pathname: match.path,
@@ -77,7 +78,7 @@ function ListPage(props) {
   };
 
   const handleShowNewClick = () => {
-    const queryParams = { status: "new" };
+    const queryParams = { status: 'new' };
 
     history.push({
       pathname: match.path,
@@ -89,12 +90,18 @@ function ListPage(props) {
   // ! Dùng useMemo để giới hạn reload
   const renderedTodoList = useMemo(() => {
     return todoList.filter(
-      (todo) => filteredStatus === "all" || filteredStatus === todo.status
+      (todo) => filteredStatus === 'all' || filteredStatus === todo.status
     );
   }, [todoList, filteredStatus]);
 
+  const handleTodoFormSubmit = (value) => {
+    console.log('Form submit: ', value);
+  };
+
   return (
     <div>
+      <h3>What to do ?</h3>
+      <TodoForm onSubmit={handleTodoFormSubmit} />
       <h3>Todo List</h3>
       <TodoList todoList={renderedTodoList} onTodoClick={handleTodoClick} />
 
