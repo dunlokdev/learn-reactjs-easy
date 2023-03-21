@@ -18,6 +18,7 @@ function InputField(props) {
   const hasError = formState.touched[name] && errors[name];
 
   console.log(errors[name], formState.touched[name]);
+  console.log('I love uu <3');
 
   return (
     <Controller

@@ -21,6 +21,7 @@ function App() {
   }, []);
   return (
     <div className='App'>
+      <h1 style={{ color: 'red', fontSize: '40px' }}>ReactJS </h1>
       <NavLink to={'/todos'} activeClassName='active-todo'>
         Todos
       </NavLink>
