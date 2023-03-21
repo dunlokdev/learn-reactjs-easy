@@ -4,6 +4,7 @@ import productApi from './api/productApi';
 import Loading from './components/Loading';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
+import CounterFeature from './features/Counter';
 import TodoFeature from './features/Todo';
 
 function App() {
@@ -20,7 +21,6 @@ function App() {
   }, []);
   return (
     <div className='App'>
-      <h1>Header</h1>
       <NavLink to={'/todos'} activeClassName='active-todo'>
         Todos
       </NavLink>
@@ -33,14 +33,12 @@ function App() {
       <Route path={"/albums"} component={AlbumFeature} /> */}
 
       <Switch>
-        <Route path={'/'} component={Loading} exact />
+        <Route path={'/'} component={CounterFeature} exact />
         <Route path={'/todos'} component={TodoFeature} />
         <Route path={'/albums'} component={AlbumFeature} />
 
         <Route component={NotFound} />
       </Switch>
-
-      <h1>Footer</h1>
     </div>
   );
 }
