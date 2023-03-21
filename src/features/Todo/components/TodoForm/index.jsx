@@ -20,7 +20,7 @@ function TodoForm(props) {
 
   const form = useForm({
     defaultValues: {
-      title: '' // ! Phải liệt kê các defualt value ở đây nếu không form sẽ lỗi vì k nhận biết được
+      title: '' // Phải liệt kê các defualt value ở đây nếu không form sẽ lỗi vì k nhận biết được
     },
     resolver: yupResolver(schema),
   });

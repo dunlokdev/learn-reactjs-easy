@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import productApi from './api/productApi';
+import Loading from './components/Loading';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
 import TodoFeature from './features/Todo';
@@ -32,7 +33,7 @@ function App() {
       <Route path={"/albums"} component={AlbumFeature} /> */}
 
       <Switch>
-        <Route path={'/'} component={TodoFeature} exact />
+        <Route path={'/'} component={Loading} exact />
         <Route path={'/todos'} component={TodoFeature} />
         <Route path={'/albums'} component={AlbumFeature} />
 
