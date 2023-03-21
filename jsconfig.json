@@ -1,9 +1,9 @@
-// * After config use need restart vscode
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "es6",
     "target": "es6",
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "moduleResolution": "node"
   },
   "include": ["src/**/*"]
 }
