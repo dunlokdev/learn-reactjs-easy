@@ -1,3 +1,4 @@
+import Header from 'components/Header';
 import React, { useEffect } from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import productApi from './api/productApi';
@@ -21,7 +22,7 @@ function App() {
   }, []);
   return (
     <div className='App'>
-      <h1 style={{ color: 'red', fontSize: '40px' }}>ReactJS </h1>
+      <Header />
       <NavLink to={'/todos'} activeClassName='active-todo'>
         Todos
       </NavLink>
