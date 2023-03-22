@@ -10,6 +10,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
+import Register from 'features/Auth/components/Register';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,9 +35,12 @@ export default function Header() {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleClose = (event, reason) => {
+    if (reason !== 'backdropClick') {
+      setOpen(false);
+    }
   };
+
   const classes = useStyles();
 
   return (
@@ -67,13 +71,11 @@ export default function Header() {
         open={open}
         onClose={handleClose}
         aria-labelledby='form-dialog-title'
-        disableBackdropClick
         disableEscapeKeyDown
       >
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
+            <Register />
           </DialogContentText>
         </DialogContent>
         <DialogActions>

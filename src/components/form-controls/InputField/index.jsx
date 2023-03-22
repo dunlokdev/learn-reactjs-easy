@@ -17,14 +17,13 @@ function InputField(props) {
 
   const hasError = formState.touched[name] && errors[name];
 
-  console.log(errors[name], formState.touched[name]);
-  console.log('I love uu <3');
-
   return (
     <Controller
       name={name}
       control={form.control}
       as={TextField}
+      variant='outlined'
+      margin='normal'
       fullWidth
       label={label}
       disabled={disabled}
