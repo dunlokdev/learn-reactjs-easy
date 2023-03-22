@@ -4,8 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import { Link, NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  link: {
+    color: '#fff',
+    textDecoration: 'none',
+  },
 }));
 
 export default function Header() {
@@ -26,18 +30,20 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar position='static'>
         <Toolbar>
-          <IconButton
-            edge='start'
-            className={classes.menuButton}
-            color='inherit'
-            aria-label='menu'
-          >
-            <MenuIcon />
-          </IconButton>
+          <GitHubIcon className={classes.menuButton} />
           <Typography variant='h6' className={classes.title}>
-            News
+            <Link className={classes.link} to='/'>
+              Dunlok Dev
+            </Link>
           </Typography>
-          <Button color='inherit'>Login</Button>
+
+          <NavLink className={classes.link} to='/todos'>
+            <Button color='inherit'>Todos</Button>
+          </NavLink>
+          <NavLink className={classes.link} to='/albums'>
+            <Button color='inherit'>Albums</Button>
+          </NavLink>
+          <Button color='inherit'>Register</Button>
         </Toolbar>
       </AppBar>
     </div>
