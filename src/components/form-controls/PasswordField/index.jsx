@@ -21,14 +21,14 @@ PasswordField.propTypes = {
 function PasswordField(props) {
   const { form, name, label, disabled } = props;
   const { errors } = form;
-  const hasError = errors[name];
+  const hasError = !!errors[name];
   const [showPassword, setShowPassword] = useState(false);
   const toggleShowPassword = () => {
     setShowPassword((x) => !x);
   };
 
   return (
-    <FormControl fullWidth variant='outlined' margin='normal'>
+    <FormControl error={hasError} fullWidth variant='outlined' margin='normal'>
       <InputLabel htmlFor={name}>{label}</InputLabel>
       <Controller
         id={name}
@@ -51,9 +51,7 @@ function PasswordField(props) {
         disabled={disabled}
       />
 
-      <FormHelperText error={!!hasError}>
-        {errors[name]?.message}
-      </FormHelperText>
+      <FormHelperText>{errors[name]?.message}</FormHelperText>
     </FormControl>
   );
 }
