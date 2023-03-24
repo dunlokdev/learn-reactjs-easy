@@ -1,5 +1,4 @@
-# ReactJS Project 
-
+# ReactJS Project
 
 ## Folder structure
 
@@ -16,5 +15,5 @@ src
 |     |__ pages (pages of feature Todo)
 |     |__ index.jsx (entry point of feature Todo)
 |
-|__ App.js        
+|__ App.js
 ```
