@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 function RegisterForm(props) {
   const classes = useStyles();
   const schema = yup.object().shape({
-    fullname: yup
+    fullName: yup
       .string()
       .required('Please enter your full name')
       .test(
@@ -65,7 +65,7 @@ function RegisterForm(props) {
 
   const form = useForm({
     defaultValues: {
-      fullname: '', // Phải liệt kê các defualt value ở đây nếu không form sẽ lỗi vì k nhận biết được
+      fullName: '', // Phải liệt kê các defualt value ở đây nếu không form sẽ lỗi vì k nhận biết được
       email: '',
       password: '',
       retypePassword: '',
@@ -95,7 +95,7 @@ function RegisterForm(props) {
 
       {/* UI FORM */}
       <form onSubmit={form.handleSubmit(handleSubmit)}>
-        <InputField name='fullname' label='Fullname' form={form} />
+        <InputField name='fullName' label='Fullname' form={form} />
         <InputField name='email' label='Email' form={form} />
         <PasswordField name='password' label='Password' form={form} />
         <PasswordField

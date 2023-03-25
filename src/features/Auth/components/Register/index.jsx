@@ -17,7 +17,7 @@ function Register(props) {
       const action = register(values);
       const resultAction = await dispatch(action);
       const user = unwrapResult(resultAction);
-      console.log('🚀 ~ handleSubmit ~ user:', user);
+      console.log('🚀 New user:', user);
     } catch (error) {
       console.log('Failed to register, ', error);
     }
