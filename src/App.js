@@ -2,7 +2,6 @@ import Header from 'components/Header';
 import React, { useEffect } from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import productApi from './api/productApi';
-import Loading from './components/Loading';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
 import CounterFeature from './features/Counter';
