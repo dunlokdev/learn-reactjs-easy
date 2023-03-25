@@ -1,8 +1,8 @@
-import React from 'react';
-import RegisterForm from '../RegisterForm';
-import { useDispatch } from 'react-redux';
-import { register } from 'features/Auth/userSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
+import { register } from 'features/Auth/userSlice';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import RegisterForm from '../RegisterForm';
 
 Register.propTypes = {};
 
@@ -17,6 +17,8 @@ function Register(props) {
       const action = register(values);
       const resultAction = await dispatch(action);
       const user = unwrapResult(resultAction);
+
+      // do something ...
       console.log('🚀 New user:', user);
     } catch (error) {
       console.log('Failed to register, ', error);
