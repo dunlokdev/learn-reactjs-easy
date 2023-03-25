@@ -1,9 +1,9 @@
 import axiosClient from './axiosClient';
 
 const userApi = {
-  getAll(data) {
+  register(data) {
     const url = '/auth/local/register';
-    return axiosClient.get(url, data);
+    return axiosClient.post(url, data);
   },
 };
 
