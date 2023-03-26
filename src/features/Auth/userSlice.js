@@ -42,8 +42,15 @@ const userSlice = createSlice({
     settings: {}, // thông tin phụ
   },
 
-  reducer: {
+  reducers: {
     // standard reducer logic, with auto-generated action types per reducer
+    logout(state) {
+      // clear localStorage
+      localStorage.removeItem(StorageKeys.TOKEN);
+      localStorage.removeItem(StorageKeys.USER);
+
+      state.current = {};
+    },
   },
   // extraReducers: {
   //   [register.fulfilled]: (state, action) => {
@@ -63,5 +70,6 @@ const userSlice = createSlice({
   },
 });
 
-const { reducer } = userSlice;
+const { actions, reducer } = userSlice;
+export const { logout } = actions;
 export default reducer; // export default
