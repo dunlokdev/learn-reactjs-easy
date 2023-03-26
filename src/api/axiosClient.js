@@ -32,8 +32,9 @@ axiosClient.interceptors.response.use(
     console.log('>>> RESPONE MESSAGE:', error.response);
 
     const { config, status, data } = error.response;
+    const URLS = ['/auth/local/register', '/auth/local'];
 
-    if (config.url === '/auth/local/register' && status === 400) {
+    if (URLS.includes(config.url) && status === 400) {
       const errors = data.data || [];
       const firstError = errors.length > 0 ? errors[0] : {};
       const messageList = firstError.messages || [];

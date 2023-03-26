@@ -9,6 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { Close } from '@material-ui/icons';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import Login from 'features/Auth/components/Login';
 import Register from 'features/Auth/components/Register';
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
@@ -86,7 +87,8 @@ export default function Header() {
         </IconButton>
         <DialogContent>
           <DialogContentText>
-            <Register closeDialog={handleClose} />
+            {/* <Register closeDialog={handleClose} /> */}
+            <Login closeDialog={handleClose} />
           </DialogContentText>
         </DialogContent>
       </Dialog>
