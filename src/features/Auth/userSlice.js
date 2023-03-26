@@ -37,7 +37,8 @@ export const login = createAsyncThunk(
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    currents: {},
+    // get data from localStorage if data available anything left {}
+    currents: JSON.parse(localStorage.getItem(StorageKeys.USER)) || {},
     settings: {}, // thông tin phụ
   },
 
