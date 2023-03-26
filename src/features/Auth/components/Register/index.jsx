@@ -28,9 +28,11 @@ function Register(props) {
       if (closeDialog) closeDialog();
 
       // do something ...
+
+      // show snackbark
       enqueueSnackbar('Register successfully!!! 🎉', { variant: 'success' });
     } catch (error) {
-      console.log('Failed to register, ', error);
+      enqueueSnackbar(error.message, { variant: 'error' });
     }
   };
   return (
