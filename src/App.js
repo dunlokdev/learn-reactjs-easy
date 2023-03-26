@@ -1,5 +1,6 @@
 import { Button } from '@material-ui/core';
 import Header from 'components/Header';
+import { useSnackbar } from 'notistack';
 import React, { useEffect } from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import productApi from './api/productApi';
@@ -7,7 +8,6 @@ import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
 import CounterFeature from './features/Counter';
 import TodoFeature from './features/Todo';
-import { SnackbarProvider, useSnackbar } from 'notistack';
 
 function App() {
   const { enqueueSnackbar } = useSnackbar();

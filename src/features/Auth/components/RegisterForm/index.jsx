@@ -101,7 +101,9 @@ function RegisterForm(props) {
 
   return (
     <div className={classes.root}>
+      {/* Show progress while submitting form */}
       {isSubmitting && <LinearProgress className={classes.progess} />}
+
       <Avatar className={classes.avatar}>
         <LockOutlined></LockOutlined>
       </Avatar>
