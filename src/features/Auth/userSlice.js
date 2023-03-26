@@ -38,7 +38,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     // get data from localStorage if data available anything left {}
-    currents: JSON.parse(localStorage.getItem(StorageKeys.USER)) || {},
+    current: JSON.parse(localStorage.getItem(StorageKeys.USER)) || {},
     settings: {}, // thông tin phụ
   },
 
