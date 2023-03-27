@@ -13,21 +13,21 @@ import TodoFeature from './features/Todo';
 function App() {
   const { enqueueSnackbar } = useSnackbar();
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const params = {
-        _limit: 5,
-      };
-      const productList = await productApi.getAll(params);
-      console.log(productList);
-    };
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const params = {
+  //       _limit: 5,
+  //     };
+  //     const productList = await productApi.getAll(params);
+  //     console.log(productList);
+  //   };
 
-    fetchProducts();
-  }, []);
+  //   fetchProducts();
+  // }, []);
 
-  const handleOnShowNotification = () => {
-    enqueueSnackbar('User registered succesfull!', { variant: 'success' });
-  };
+  // const handleOnShowNotification = () => {
+  //   enqueueSnackbar('User registered succesfull!', { variant: 'success' });
+  // };
   return (
     <div className='App'>
       <Header />
