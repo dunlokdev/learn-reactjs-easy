@@ -25,7 +25,7 @@ function ListPage(props) {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await productApi.getAll({ _page: 1, _limit: 10 });
+        const { data } = await productApi.getAll({ _page: 1, _limit: 20 });
         console.log('>>> data: ', data);
         setProductList(data);
       } catch (error) {
