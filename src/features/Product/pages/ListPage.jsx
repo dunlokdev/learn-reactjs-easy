@@ -1,4 +1,4 @@
-import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
+import { Box, Container, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
 import productApi from 'api/productApi';
 import React, { useEffect, useState } from 'react';
@@ -10,12 +10,18 @@ const useStyles = makeStyles((themes) => ({
   root: {},
 
   left: {
-    maxWidth: '20%',
-    flex: '1 1 20%',
+    width: '250px',
   },
 
   right: {
-    flex: '1 0 80%',
+    flex: '1 1 0',
+  },
+
+  pagination: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '20px',
+    paddingBottom: '20px',
   },
 }));
 
@@ -58,14 +64,19 @@ function ListPage(props) {
           </Grid>
           <Grid item className={classes.right}>
             <Paper elevation={0}>
+              <Typography component='h3' variant='h5'>
+                Danh sách sản phẩm
+              </Typography>
               {loading ? <ProductSkeletonList length={10} /> : <ProductList data={productList} />}
 
-              <Pagination
-                count={Math.ceil(pagination.total / pagination.limit)}
-                page={pagination.page}
-                color='primary'
-                onChange={handlePageChange}
-              />
+              <Box className={classes.pagination}>
+                <Pagination
+                  count={Math.ceil(pagination.total / pagination.limit)}
+                  page={pagination.page}
+                  color='primary'
+                  onChange={handlePageChange}
+                />
+              </Box>
             </Paper>
           </Grid>
         </Grid>
