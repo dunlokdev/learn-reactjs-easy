@@ -1,11 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import {
-  Avatar,
-  Button,
-  LinearProgress,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
+import { Avatar, Button, LinearProgress, makeStyles, Typography } from '@material-ui/core';
 import { LockOutlined } from '@material-ui/icons';
 import InputField from 'components/form-controls/InputField';
 import PasswordField from 'components/form-controls/PasswordField';
@@ -52,14 +46,10 @@ function RegisterForm(props) {
     fullName: yup
       .string()
       .required('Please enter your full name')
-      .test(
-        'Should has at least two word',
-        'Please enter at least two word',
-        (value) => {
-          console.log(value);
-          return value.split(' ').length >= 2;
-        }
-      ),
+      .test('Should has at least two word', 'Please enter at least two word', (value) => {
+        console.log(value);
+        return value.split(' ').length >= 2;
+      }),
 
     email: yup
       .string()
@@ -115,11 +105,7 @@ function RegisterForm(props) {
         <InputField name='fullName' label='Fullname' form={form} />
         <InputField name='email' label='Email' form={form} />
         <PasswordField name='password' label='Password' form={form} />
-        <PasswordField
-          name='retypePassword'
-          label='Retype password'
-          form={form}
-        />
+        <PasswordField name='retypePassword' label='Retype password' form={form} />
 
         <Button
           disabled={isSubmitting}
