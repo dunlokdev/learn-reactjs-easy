@@ -89,9 +89,7 @@ function ListPage(props) {
 
   // ! Dùng useMemo để giới hạn reload
   const renderedTodoList = useMemo(() => {
-    return todoList.filter(
-      (todo) => filteredStatus === 'all' || filteredStatus === todo.status
-    );
+    return todoList.filter((todo) => filteredStatus === 'all' || filteredStatus === todo.status);
   }, [todoList, filteredStatus]);
 
   const handleTodoFormSubmit = (value) => {
