@@ -67,6 +67,7 @@ function ListPage(props) {
     // setFilteredStatus("all");
   };
 
+  // [x] Handle show completed click
   const handleShowCompletedClick = () => {
     const queryParams = { status: 'completed' };
 
