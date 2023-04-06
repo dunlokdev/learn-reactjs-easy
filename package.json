@@ -25,6 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prestart": "nvm use 12.18.3",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
